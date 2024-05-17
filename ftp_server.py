@@ -7,7 +7,8 @@ def main():
     authorizer = DummyAuthorizer()
     
     #Añade un usuario con nombre de usuario, contraseña, directorio al que accedera cuando se conecte y con permisos de lectura y escritura
-    authorizer.add_user("user", "12345", "/Users/valen/FTP-FTPS_implementacion/user", perm="elradfmw")
+    #Tambien se le puede personalizar el mensaje que se muestra cuando el usuario se conecta y desconecta
+    authorizer.add_user("user", "12345", "/Users/valen/FTP-FTPS_implementacion/user", perm="elradfmw", msg_login="Conexión exitosa", msg_quit="Te has desconectado")
     #"e" = Autoriza cambiar de carpeta
     #"l" = Autoriza listar archivos
     #"r" = Autoriza descargar archivos del servidor
@@ -18,7 +19,7 @@ def main():
     #"w" = Autoriza subir archivos al servidor
     
     #Añade un usuario anonimo con permisos de lectura unicamente y el directorio al que accedera cuando se conecte
-    authorizer.add_anonymous("/Users/valen/FTP-FTPS_implementacion/anonimo")
+    authorizer.add_anonymous("/Users/valen/FTP-FTPS_implementacion/anonimo", msg_login="Conexión exitosa", msg_quit="Te has desconectado")
 
     #Se crea el handler que se encarga de manejar los comandos y las operaciones del server
     handler = FTPHandler
