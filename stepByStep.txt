@@ -1,0 +1,52 @@
+1- Correr el archivo 'ftp_server.py' ejecutando este comando en la ruta de la carpeta del repositorio:
+    tu\path\al\repo\FTP-FTPS_implementacion> python ./ftp_server.py
+Esto producira una salida similar a esta:
+    [I 2024-05-21 19:39:38] concurrency model: async
+    [I 2024-05-21 19:39:38] masquerade (NAT) address: None
+    [I 2024-05-21 19:39:38] passive ports: None
+    [I 2024-05-21 19:39:38] >>> starting FTP server on 0.0.0.0:21, pid=22840 <<<
+Significa que el servidor esta activo y escuchando en el puerto 21.
+
+2- Conectarse al servidor con el siguiente comando:
+    ftp localhost
+Luego, se mostrara un mensaje que solicita un nombre de usuario y posteriormente contraseña
+    ftp localhost
+    Conectado a <nombreTuOrdenador>.
+    220 pyftpdlib 1.5.9 ready.
+    530 Log in with USER and PASS first.
+    Usuario (<nombreTuOrdenador>:(none)): <username>
+    331 Username ok, send password.  ----Esto si el usuario es correcto
+    Contraseña:
+
+3- Hay dos maneras de entrar (En esta implementacion):
+    .Usuario con clave
+    .Usuario anonimo
+El usuario anonimo solamente tendra permisos de lectura, por lo que solamente podra leer los contenidos de los archivos o listarlos.
+El usuario con clave puede hacer lo mismo que el anonimo, pero tambien posee permisos de escritura, por lo que podra subir archivos o descargarlos.
+
+3-a) Conectarse como usuario anonimo:
+        Cuando nos pide el nombre de usuario, escribir: 'anonymous', y luego cuando solicite la contraseña dejar el campo vacio:
+        ftp localhost
+        Conectado a <nombreTuOrdenador>.
+        220 pyftpdlib 1.5.9 ready.
+        530 Log in with USER and PASS first.
+        Usuario (<nombreTuOrdenador>:(none)): anonymous
+        331 Username ok, send password.
+        Contraseña:
+
+        230 Conexion exitosa
+
+3-b) Conectarse como usuario con clave:
+        Cuando nos pide el nombre de usuario, escribir: 'user', y luego cuando solicite la contraseña, colocar la que corresponda:
+        ftp localhost
+        Conectado a <nombreTuOrdenador>.
+        220 pyftpdlib 1.5.9 ready.
+        530 Log in with USER and PASS first.
+        Usuario (<nombreTuOrdenador>:(none)): user
+        331 Username ok, send password.
+        Contraseña:
+
+        230 Conexion exitosa
+
+4- Una vez conectados, se pueden ejecutar distintos comandos de terminal, como por ejemplo:
+    -ls: Listar los archivos o directorios disponibles en la carpeta del usuario
