@@ -49,4 +49,10 @@ El usuario con clave puede hacer lo mismo que el anonimo, pero tambien posee per
         230 Conexion exitosa
 
 4- Una vez conectados, se pueden ejecutar distintos comandos de terminal, como por ejemplo:
-    -ls: Listar los archivos o directorios disponibles en la carpeta del usuario
+    -ls : Listar los archivos o directorios disponibles en la carpeta del usuario
+    -get <nombreArchivo> : Descargar un archivo
+    -put <nombreArchivo> : Subir un archivo 
+    -lcd <path/al/directorio> : Cambia al directorio en tu computadora desde el cual deseas subir un archivo
+    -cd <path/al/directorio> : Cambiar de directorio en el servidor
+    -delete <nombreArchivo> : Borrar el archivo en el servidor
+    -bye : Desconectarse del servidor
